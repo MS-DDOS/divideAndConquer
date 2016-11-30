@@ -28,11 +28,21 @@ public class MergeSort
 
 		public ArrayList<Integer> merge(final ArrayList<Integer> list1, final ArrayList<Integer> list2)
 		{
-			ArrayList<Integer> ret = new ArrayList<Integer>(list1.size() + list2.size());
-			Iterator<int> list1_it = list1.iterator();
-			Iterator<int> list2_it = list2.iterator();
-			int val1 = list1_it.next();
-			int val2 = list2_it.next();
+			int val1, val2;
+			Iterator<Integer> list1_it, list2_it;
+			ArrayList<Integer> ret;
+
+			ret = new ArrayList<Integer>(list1.size() + list2.size());
+			list1_it = list1.iterator();
+			list2_it = list2.iterator();
+			if(list1_it.hasNext())
+				val1 = list1_it.next();
+			else
+				val1 = -1;
+			if(list2_it.hasNext())
+				val2 = list2_it.next();
+			else
+				val2 = -1;
 			while(list1_it.hasNext() && list2_it.hasNext())
 			{
 				if(val1 <= val2)
